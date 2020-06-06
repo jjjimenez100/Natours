@@ -5,6 +5,10 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: 'Natours | Exciting tours for adventurous people',
+    description: 'Exciting tours for adventurous people'
+  },
   /* Your site config here */
-  plugins: [],
+  plugins: [ ],
 }

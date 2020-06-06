@@ -1,0 +1,103 @@
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+            to right bottom,
+            rgba(126, 213, 111, 0.8),
+            rgba(40, 180, 131, 0.8)
+        ),
+        url('/images/hero.jpg');
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    /* This will be the point of origin of the top left attribute of child elements within */
+    position: relative;
+}
+
+.logoContainer {
+    /* Use position absolute to force element placement */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.contentContainer {
+    position: absolute;
+    /* References container */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.primaryHeading {
+    color: #fff;
+    text-transform: uppercase;
+
+    /* Fix on other browsers making animation a bit shaky */
+    backface-visibility: hidden;
+}
+
+.primaryHeadingMain {
+    /* span element by default is an inline element, make it block so it forces the next element to be on the next line */
+    display: block;
+    font-size: 60px;
+    /* h1 has a default higher font weight */
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    animation: moveInLeft 1s ease-in-out;
+
+    /*
+    animation-delay: 2s;
+    animation-iteration-count: 3; repeat animation for a number of times
+    */
+}
+
+.primaryHeadingSub {
+    display: block;
+    letter-spacing: 17px;
+    font-size: 20px;
+    font-weight: 700;
+
+    animation: moveInRight 1s ease-in-out;
+}
+
+@keyframes moveInLeft {
+    /* Browsers are optimized for opacity and transform */
+    0% {
+        opacity: 0;
+        /* Shifts to the left, negative x value on the plane */
+        transform: translateX(-100px);
+    }
+
+    80% {
+        /* Make it appear to move on an excess amount on the x axis */
+        transform: translateX(10px);
+    }
+
+    100% {
+        opactiy: 1;
+        /* 0 is the starting point of x y */
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opactiy: 1;
+        transform: translateX(0);
+    }
+}
